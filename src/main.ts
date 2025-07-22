@@ -1,33 +1,27 @@
 import { Firebot } from "@crowbartools/firebot-custom-scripts-types";
 
 interface Params {
-  message: string;
+
 }
 
 const script: Firebot.CustomScript<Params> = {
   getScriptManifest: () => {
     return {
-      name: "Starter Custom Script",
-      description: "A starter custom script for build",
-      author: "SomeDev",
+      name: "Chat Overlay",
+      description: "A Firebot plugin to display chat messages in an overlay",
+      author: "DennisOnTheInternet",
       version: "1.0",
       firebotVersion: "5",
+      startupOnly: true
     };
   },
   getDefaultParameters: () => {
     return {
-      message: {
-        type: "string",
-        default: "Hello World!",
-        description: "Message",
-        secondaryDescription: "Enter a message here",
-        title: "Hello!",
-      },
+
     };
   },
   run: (runRequest) => {
-    const { logger } = runRequest.modules;
-    logger.info(runRequest.parameters.message);
+
   },
 };
 
