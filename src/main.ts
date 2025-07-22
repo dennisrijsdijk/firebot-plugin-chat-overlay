@@ -1,4 +1,7 @@
 import { Firebot } from "@crowbartools/firebot-custom-scripts-types";
+import { setupBackend, cleanupBackend } from "./backend";
+import globals from "./globals";
+import { ScriptModules } from "./types/overrides";
 
 interface Params {
 
@@ -20,9 +23,14 @@ const script: Firebot.CustomScript<Params> = {
 
     };
   },
-  run: (runRequest) => {
-
+  run: async (runRequest) => {
+    globals.accounts = runRequest.firebot.accounts;
+    globals.scriptModules = runRequest.modules as ScriptModules;
+    await setupBackend();
   },
+  stop: async () => {
+    await cleanupBackend();
+  }
 };
 
 export default script;
