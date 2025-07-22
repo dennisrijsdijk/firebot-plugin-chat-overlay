@@ -64,7 +64,7 @@ type AnnouncementMetadata = {
     username: string;
     userId: string;
     userDisplayName: string;
-    twitchUserRoles: unknown[];
+    twitchUserRoles: string[];
     messageText: string;
     messageId: string;
 }
@@ -102,7 +102,7 @@ type ChatMessageMetadata = {
     username: string;
     userId: string;
     userDisplayName: string;
-    twitchUserRoles: unknown[];
+    twitchUserRoles: string[];
     messageText: string;
     messageId: string;
     chatMessage: FirebotChatMessage;
