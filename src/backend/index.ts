@@ -1,8 +1,10 @@
 import * as overlay from "../overlay";
 import handleFirebotEvent from "./events";
 import globals from "../globals";
+import settings from "./settings";
 
 export async function setupBackend() {
+    await settings.setupDatabase();
     const { eventManager, httpServer } = globals.scriptModules;
 
     httpServer.registerCustomRoute("chat-overlay", "", "GET", async (req, res) => {
